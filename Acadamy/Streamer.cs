@@ -16,7 +16,7 @@ namespace Acadamy
 				sw.WriteLine(group[i].ToFileString());
 			}
 			sw.Close();
-			System.Diagnostics.Process.Start("notepad", File_Name);
+			System.Diagnostics.Process.Start("Excel", File_Name);
 		}
 		internal static void Print(Human[] group)
 		{
