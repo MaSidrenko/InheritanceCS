@@ -8,6 +8,10 @@ namespace Acadamy
 {
 	internal class Human
 	{
+		static readonly int TYPE_WIDTH = 12;
+		static readonly int LAST_NAME_WIDTH = 16;
+		static readonly int FIRST_NAME_WIDTH = 16;
+		static readonly int AGE_WIDTH = 5;
 		public string LastName { get; set; }
 		public string FirstName { get; set; }
 		public int Age { get; set; }
@@ -29,8 +33,13 @@ namespace Acadamy
 		}
 		public override string ToString()
 		{
-			return LastName + " " + FirstName + " " + Age;
+			return (base.ToString().Split('.').Last() + ": ").PadRight(TYPE_WIDTH) + LastName.PadRight(LAST_NAME_WIDTH) + " " + FirstName.PadRight(FIRST_NAME_WIDTH) + " " + Age.ToString().PadRight(AGE_WIDTH);
 		}
+		public virtual string ToFileString()
+		{
+			return this.GetType().ToString().Split('.').Last() + "," + LastName + "," + FirstName + "," + Age; 
+		}
+
 
 	}
 }

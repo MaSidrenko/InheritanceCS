@@ -8,6 +8,8 @@ namespace Acadamy
 {
 	internal class Teacher:Human
 	{
+		static readonly int SPECIALITY_WIDTH = 30;
+		static readonly int EXPERIENCE_WIDTH = 10;
 		public string Speciality { get; set; }
 		public int Experience { get; set; }
 		public Teacher(
@@ -29,7 +31,11 @@ namespace Acadamy
 		}
 		public override string ToString()
 		{
-			return "Teacher: " + base.ToString() + " " + Speciality + " " + Experience;
+			return base.ToString() + " " + Speciality.PadRight(SPECIALITY_WIDTH) + " " + Experience.ToString().PadRight(EXPERIENCE_WIDTH);
+		}
+		public override string ToFileString()
+		{
+			return base.ToFileString() + "," + Speciality + "," + Experience;
 		}
 	}
 }

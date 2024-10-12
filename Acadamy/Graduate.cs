@@ -27,7 +27,11 @@ namespace Acadamy
 		}
 		public override string ToString()
 		{
-			return "Graduate: " + base.ToString() + " " + Subject;
+			return base.ToString().PadRight(16) + " " + Subject;
+		}
+		public override string ToFileString()
+		{
+			return base.ToFileString() + "," + Subject;
 		}
 	}
 }

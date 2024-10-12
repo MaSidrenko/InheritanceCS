@@ -8,6 +8,10 @@ namespace Acadamy
 {
 	internal class Student: Human
 	{
+		static readonly int SPECIALITY_WIDTH = 24;
+		static readonly int GROUP_WIDTH = 8;
+		static readonly int RATING_WIDTH = 8;
+		static readonly int ATTENDACE_WIDTH = 8;
 		public string Speciality { get; set; }
 		public string Group { get; set; }
 		public double Rating { get; set; }
@@ -35,7 +39,11 @@ namespace Acadamy
 		}
 		public override string ToString()
 		{
-			return "Student: " + base.ToString() + " " + Speciality + " " + Group + " " + Rating + " " + Attendace;
+			return base.ToString() + " " + Speciality.PadRight(SPECIALITY_WIDTH) + " " + Group.PadRight(GROUP_WIDTH) + " " + Rating.ToString().PadRight(RATING_WIDTH) + " " + Attendace.ToString().PadRight(ATTENDACE_WIDTH);
+		}
+		public override string ToFileString()
+		{
+			return base.ToFileString() + "," + Speciality + "," + Group + "," + Rating + "," + Attendace;
 		}
 	}
 }
