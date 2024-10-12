@@ -54,7 +54,7 @@ namespace Acadamy
 				new Student("Skywalker", "Luke", 22, "Jedi", "Jedi Order", 99, 100)
 			};
 	
-		Streamer.Write_to_File(group, "Group.txt");
+		Streamer.Write_to_File(group, "Group.csv");
 #endif
 			//Human[] group = Read_form_File("Group.txt");
 			
