@@ -33,5 +33,11 @@ namespace Acadamy
 		{
 			return base.ToFileString() + "," + Subject;
 		}
+		public override Human Init(string[] values)
+		{
+			base.Init(values);
+			Subject = values[8];
+			return this; 
+		}
 	}
 }

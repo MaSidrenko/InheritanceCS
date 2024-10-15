@@ -1,5 +1,6 @@
 ﻿//#define INHERITENCE
-#define GROUP
+//#define GROUP
+#define LOAD_CHECK
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,21 +13,6 @@ namespace Acadamy
 {
 	internal class Program
 	{
-	
-		static Human[] Read_form_File(string File_Name)
-		{
-			System.IO.StreamReader sr = new System.IO.StreamReader("Group.txt");
-			string buffer;
-			Human[] group = new Human[]{ };
-			while (!sr.EndOfStream)
-			{
-				buffer = sr.ReadLine();
-				Console.WriteLine(buffer);
-			}
-			sr.Close();
-			return group;
-		}
-		
 		static string delimiter = "\n|--------------------------------------|\n";
 		static void Main(string[] args)
 		{
@@ -56,8 +42,11 @@ namespace Acadamy
 	
 		Streamer.Write_to_File(group, "Group.csv");
 #endif
-			//Human[] group = Read_form_File("Group.txt");
-			
+#if LOAD_CHECK
+			Human[] group = Streamer.Read_form_File("Group.csv");
+			Streamer.Print(group);
+#endif
+
 		}
 	}
 }
